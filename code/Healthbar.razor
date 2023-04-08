@@ -1,0 +1,42 @@
+﻿@inherits Sandbox.UI.Panel
+@using Sandbox
+
+<root>
+    <style>
+        Healthbar {
+            position: absolute;
+            bottom:60px;
+            left:100px;
+            width: 400px;
+            height: 40px;
+            background-color: black;
+            padding: 2px;
+        }
+        .fill{
+            width:100%;
+            height:100%;
+            background-color: yellow;
+            
+        }
+
+
+    </style>
+    <div class="fill"></div>
+</root>
+
+@code{
+    public int GetHealth()
+    {
+        var player = Game.LocalPawn as Pawn;
+        if (player == null) return 0;
+
+        return (int)player.Health
+    }
+
+    protected override int BuildHash()
+    {
+        var currentHealth = GetHealth();
+
+        return currentHealth.GetHashCode();
+    }
+}
