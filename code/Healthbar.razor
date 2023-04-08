@@ -15,13 +15,13 @@
         .fill{
             width:100%;
             height:100%;
-            background-color: yellow;
+            background-color: red;
             
         }
 
 
     </style>
-    <div class="fill"></div>
+    <div class="fill"style="width:@(GetHealth())%"</div>
 </root>
 
 @code{
@@ -30,7 +30,7 @@
         var player = Game.LocalPawn as Pawn;
         if (player == null) return 0;
 
-        return (int)player.Health
+        return (int)player.Health;
     }
 
     protected override int BuildHash()

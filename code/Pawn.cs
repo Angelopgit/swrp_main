@@ -75,6 +75,8 @@ partial class Pawn : AnimatedEntity
 			ragdoll.Rotation = Rotation.LookAt( Vector3.Random.Normal );
 			ragdoll.SetupPhysicsFromModel( PhysicsMotionType.Dynamic, false );
 			ragdoll.PhysicsGroup.Velocity = Rotation.Forward * 1000;
+
+			Health -= 10;    // Lower health Bar with click
 		}
 	}
 
